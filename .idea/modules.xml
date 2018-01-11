@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/chance.pants.simulatedannealing.iml" filepath="$PROJECT_DIR$/.idea/modules/chance.pants.simulatedannealing.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/chance.pants.simulatedannealing_main.iml" filepath="$PROJECT_DIR$/.idea/modules/chance.pants.simulatedannealing_main.iml" group="chance.pants.simulatedannealing" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/chance.pants.simulatedannealing_test.iml" filepath="$PROJECT_DIR$/.idea/modules/chance.pants.simulatedannealing_test.iml" group="chance.pants.simulatedannealing" />
+    </modules>
+  </component>
+</project>
