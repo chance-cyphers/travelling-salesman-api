@@ -1,8 +1,9 @@
+import javax.swing.*;
+import java.awt.*;
+
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println("hello gurld");
-
         City city = new City(60, 200);
         TourManager.addCity(city);
         City city2 = new City(180, 200);
@@ -58,6 +59,13 @@ public class Main {
 
         System.out.println("Final solution distance: " + best.getDistance());
         System.out.println("Tour: " + best);
+
+//        JFrame frame = new JFrame();
+//        frame.setPreferredSize(new Dimension(400,300));
+//        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//        frame.add(new SalesmanPanel(best));
+//        frame.pack();
+//        frame.setVisible(true);
     }
 
 }

@@ -9,7 +9,6 @@ public class SimulatedAnnealing {
         return Math.exp((energy - newEnergy) / temperature);
     }
 
-
     public static Tour findSolution(Tour startingTour, double temp, double coolingRate) {
         Tour currentSolution = new Tour(startingTour.getTour());
         Tour best = new Tour(currentSolution.getTour());
@@ -17,7 +16,7 @@ public class SimulatedAnnealing {
         // Loop until system has cooled
         while (temp > 1) {
             // Create new neighbour tour
-            Tour newSolution = new Tour(startingTour.getTour());
+            Tour newSolution = new Tour(currentSolution.getTour());
 
             // Get a random positions in the tour
             int tourPos1 = (int) (newSolution.tourSize() * Math.random());
@@ -31,7 +30,6 @@ public class SimulatedAnnealing {
             newSolution.setCity(tourPos2, citySwap1);
             newSolution.setCity(tourPos1, citySwap2);
 
-            // Get energy of solutions
             int currentEnergy = currentSolution.getDistance();
             int neighbourEnergy = newSolution.getDistance();
 
@@ -40,13 +38,11 @@ public class SimulatedAnnealing {
                 currentSolution = new Tour(newSolution.getTour());
             }
 
-            // Keep track of the best solution found
             if (currentSolution.getDistance() < best.getDistance()) {
                 best = new Tour(currentSolution.getTour());
             }
 
-            // Cool system
-            temp *= 1-coolingRate;
+            temp *= 1 - coolingRate;
         }
         return best;
     }

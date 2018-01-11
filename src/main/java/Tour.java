@@ -1,9 +1,10 @@
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 public class Tour {
 
-    private ArrayList tour = new ArrayList<City>();
+    private ArrayList<City> tour = new ArrayList<City>();
     private int distance = 0;
 
     public Tour() {
@@ -16,7 +17,7 @@ public class Tour {
         this.tour = (ArrayList) tour.clone();
     }
 
-    public ArrayList getTour() {
+    public ArrayList<City> getTour() {
         return tour;
     }
 
