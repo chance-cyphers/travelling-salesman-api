@@ -1,5 +1,4 @@
-import javax.swing.*;
-import java.awt.*;
+package chance.pants.example;
 
 public class Main {
 
@@ -50,20 +49,20 @@ public class Main {
         double coolingRate = 0.003;
 
         // Initialize intial solution
-        Tour currentSolution = new Tour();
-        currentSolution.generateRandomIndividual();
+        TourFromExample initialTour = new TourFromExample();
+        initialTour.generateRandomIndividual();
 
-        System.out.println("Initial solution distance: " + currentSolution.getDistance());
+        System.out.println("Initial solution distance: " + initialTour.getDistance());
 
-        Tour best = SimulatedAnnealing.findSolution(currentSolution, temp, coolingRate);
+        TourFromExample best = SimulatedAnnealing.findSolution(initialTour, temp, coolingRate);
 
         System.out.println("Final solution distance: " + best.getDistance());
-        System.out.println("Tour: " + best);
+        System.out.println("chance.pants.example.TourFromExample: " + best);
 
 //        JFrame frame = new JFrame();
 //        frame.setPreferredSize(new Dimension(400,300));
 //        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//        frame.add(new SalesmanPanel(best));
+//        frame.add(new chance.pants.example.SalesmanPanel(best));
 //        frame.pack();
 //        frame.setVisible(true);
     }

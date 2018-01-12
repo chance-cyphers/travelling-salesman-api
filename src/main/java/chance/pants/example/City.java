@@ -1,3 +1,4 @@
+package chance.pants.example;
 
 public class City {
     int x;
@@ -19,9 +20,7 @@ public class City {
     public double distanceTo(City city){
         int xDistance = Math.abs(getX() - city.getX());
         int yDistance = Math.abs(getY() - city.getY());
-        double distance = Math.sqrt( (xDistance*xDistance) + (yDistance*yDistance) );
-        
-        return distance;
+        return Math.sqrt( (xDistance*xDistance) + (yDistance*yDistance) );
     }
     
     @Override

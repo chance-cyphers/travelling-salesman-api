@@ -1,3 +1,5 @@
+package chance.pants.example;
+
 import java.util.ArrayList;
 
 public class TourManager {

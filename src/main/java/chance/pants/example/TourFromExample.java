@@ -1,19 +1,20 @@
+package chance.pants.example;
+
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
 
-public class Tour {
+public class TourFromExample {
 
-    private ArrayList<City> tour = new ArrayList<City>();
+    private ArrayList<City> tour = new ArrayList<>();
     private int distance = 0;
 
-    public Tour() {
+    public TourFromExample() {
         for (int i = 0; i < TourManager.numberOfCities(); i++) {
             tour.add(null);
         }
     }
 
-    public Tour(ArrayList tour) {
+    public TourFromExample(ArrayList tour) {
         this.tour = (ArrayList) tour.clone();
     }
 
@@ -47,7 +48,7 @@ public class Tour {
             for (int cityIndex = 0; cityIndex < tourSize(); cityIndex++) {
                 City fromCity = getCity(cityIndex);
                 City destinationCity;
-                // Check we're not on our tour's last city, if we are set our 
+                // Check we're not on our tour's last city, if we are set our
                 // tour's final destination city to our starting city
                 if (cityIndex + 1 < tourSize()) {
                     destinationCity = getCity(cityIndex + 1);

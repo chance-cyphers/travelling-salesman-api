@@ -1,11 +1,13 @@
+package chance.pants.example;
+
 import javax.swing.*;
 import java.awt.*;
 
 public class SalesmanPanel extends JPanel {
 
-    Tour tour;
+    TourFromExample tour;
 
-    public SalesmanPanel(Tour tour) {
+    public SalesmanPanel(TourFromExample tour) {
         super();
         this.tour = tour;
     }
