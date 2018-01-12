@@ -1,7 +1,10 @@
 import chance.pants.algorithm.simulatedannealing.SimulatedAnnealing;
 import chance.pants.algorithm.simulatedannealing.Stop;
+import chance.pants.example.SalesmanPanel;
 import org.junit.Test;
 
+import javax.swing.*;
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -12,7 +15,7 @@ import static org.junit.Assert.assertThat;
 public class SimulatedAnnealingTest {
 
     @Test
-    public void solve_findsADecentSolution_newAlg() {
+    public void solve_findsADecentSolution() {
         ArrayList<Stop> stops = new ArrayList<>();
         stops.add(new Stop(60, 200));
         stops.add(new Stop(180, 200));
@@ -42,6 +45,44 @@ public class SimulatedAnnealingTest {
         int tourDistance = calculateTotalDistance(solution);
 
         assertThat(tourDistance, lessThan(1200));
+    }
+
+    @Test
+    public void shouldHandleDifferentScales() {
+        List<Stop> stops = makeSomeStops(20,200);
+        Collections.shuffle(stops);
+
+        System.out.println("total distance before: " + calculateTotalDistance(stops));
+
+        SimulatedAnnealing algorithm = new SimulatedAnnealing();
+        List<Stop> solution = algorithm.findSolution(stops);
+
+        System.out.println("total distance after: " + calculateTotalDistance(solution));
+//        JFrame frame = new JFrame();
+//        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//        frame.add(new SalesmanPanel(solution));
+//        frame.setPreferredSize(new Dimension(400, 300));
+//        frame.pack();
+//        frame.setVisible(true);
+//
+//        try {
+//            Thread.sleep(5000);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
+
+    }
+
+    private List<Stop> makeSomeStops(int amount, double scale) {
+        ArrayList<Stop> someStops = new ArrayList<>();
+
+        for (int i = 0 ; i < amount ; i++) {
+            double randomX = Math.random() * scale;
+            double randomY = Math.random() * scale;
+            someStops.add(new Stop(randomX, randomY));
+        }
+
+        return someStops;
     }
 
     private int calculateTotalDistance(List<Stop> stops) {
