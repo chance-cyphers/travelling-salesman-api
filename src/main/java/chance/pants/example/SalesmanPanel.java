@@ -1,23 +1,26 @@
 package chance.pants.example;
 
+import chance.pants.algorithm.simulatedannealing.Stop;
+
 import javax.swing.*;
 import java.awt.*;
+import java.util.List;
 
 public class SalesmanPanel extends JPanel {
 
-    TourFromExample tour;
+    List<Stop> stops;
 
-    public SalesmanPanel(TourFromExample tour) {
+    public SalesmanPanel(List<Stop> stops) {
         super();
-        this.tour = tour;
+        this.stops = stops;
     }
 
     @Override
     public void paintComponent(Graphics g) {
-        for (int i = 0 ; i < tour.getTour().size() - 1 ; i++) {
-            City from = tour.getTour().get(i);
-            City to = tour.getTour().get(i+1);
-            g.drawLine(from.x, from.y, to.x, to.y);
+        for (int i = 0 ; i < stops.size() - 1 ; i++) {
+            Stop from = stops.get(i);
+            Stop to = stops.get(i+1);
+            g.drawLine((int)from.getX(), (int)from.getY(), (int)to.getX(), (int)to.getY());
         }
     }
 
