@@ -2,7 +2,7 @@ package chance.pants.algorithm.simulatedannealing;
 
 import java.util.List;
 
-public class SimulatedAnnealingAlg {
+public class SimulatedAnnealing {
 
     //TODO research starting temp and cooling rate
     private static final double startingTemp = 10000;

@@ -1,4 +1,4 @@
-import chance.pants.algorithm.simulatedannealing.SimulatedAnnealingAlg;
+import chance.pants.algorithm.simulatedannealing.SimulatedAnnealing;
 import chance.pants.algorithm.simulatedannealing.Stop;
 import org.junit.Test;
 
@@ -36,7 +36,7 @@ public class SimulatedAnnealingTest {
         stops.add(new Stop(160, 20));
         Collections.shuffle(stops);
 
-        SimulatedAnnealingAlg algorithm = new SimulatedAnnealingAlg();
+        SimulatedAnnealing algorithm = new SimulatedAnnealing();
 
         List<Stop> solution = algorithm.findSolution(stops);
         int tourDistance = calculateTotalDistance(solution);
