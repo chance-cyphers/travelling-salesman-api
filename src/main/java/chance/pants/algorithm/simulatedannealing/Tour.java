@@ -27,22 +27,22 @@ class Tour {
         return this.stops.size();
     }
 
-    //TODO refactor so that tour contains a method which tells which city is next
     public double getTotalDistance() {
         double tourDistance = 0;
         for (int stopIndex = 0; stopIndex < size(); stopIndex++) {
             Stop currentStop = getStop(stopIndex);
-            Stop nextStop;
-
-            if (stopIndex < size() - 1) {
-                nextStop = getStop(stopIndex + 1);
-            } else {
-                nextStop = getStop(0);
-            }
-
+            Stop nextStop = getNextStop(stopIndex);
             tourDistance += currentStop.distanceTo(nextStop);
         }
         return tourDistance;
+    }
+
+    private Stop getNextStop(int currentIndex) {
+        if (currentIndex < size() - 1) {
+            return getStop(currentIndex + 1);
+        } else {
+            return getStop(0);
+        }
     }
 
     public Tour getSwappedTour(int firstIndex, int secondIndex) {
