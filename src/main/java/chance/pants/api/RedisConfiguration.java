@@ -7,6 +7,7 @@ import org.redisson.config.Config;
 import org.redisson.config.SingleServerConfig;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -14,17 +15,19 @@ import java.net.URISyntaxException;
 @Configuration
 public class RedisConfiguration {
 
-//    @Bean
-//    public RedissonClient redissonClient() {
-//        Config config = new Config();
-//        SingleServerConfig singleServerConfig = config.useSingleServer();
-//        singleServerConfig.setAddress("redis://ec2-54-85-101-85.compute-1.amazonaws.com:56199");
-//        singleServerConfig.setPassword("p274c0bf76333d63bf53c25d6d93abeda23afbf43f175b8ca24e447b0fe84da2f");
-//        return Redisson.create(config);
-//    }
+    @Bean
+    @Profile("local")
+    public RedissonClient redissonClientLocal() {
+        Config config = new Config();
+        SingleServerConfig singleServerConfig = config.useSingleServer();
+        singleServerConfig.setAddress("redis://ec2-54-85-101-85.compute-1.amazonaws.com:56199");
+        singleServerConfig.setPassword("p274c0bf76333d63bf53c25d6d93abeda23afbf43f175b8ca24e447b0fe84da2f");
+        return Redisson.create(config);
+    }
 
     @Bean
-    public RedissonClient redissonClient() throws URISyntaxException {
+    @Profile("heroku")
+    public RedissonClient redissonClientHeroku() throws URISyntaxException {
         Config config = new Config();
         SingleServerConfig singleServerConfig = config.useSingleServer();
 
