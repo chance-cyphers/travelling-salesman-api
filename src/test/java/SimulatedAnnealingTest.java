@@ -1,10 +1,7 @@
 import chance.pants.algorithm.simulatedannealing.SimulatedAnnealing;
 import chance.pants.algorithm.simulatedannealing.Stop;
-import chance.pants.example.SalesmanPanel;
 import org.junit.Test;
 
-import javax.swing.*;
-import java.awt.*;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
