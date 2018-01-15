@@ -1,6 +1,6 @@
 package chance.pants.example;
 
-import chance.pants.algorithm.simulatedannealing.Stop;
+import chance.pants.api.resources.Stop;
 
 import javax.swing.*;
 import java.awt.*;

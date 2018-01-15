@@ -1,4 +1,7 @@
-package chance.pants.algorithm.simulatedannealing;
+package chance.pants.api.algorithm;
+
+import chance.pants.api.resources.Stop;
+import chance.pants.api.resources.Tour;
 
 import java.util.List;
 

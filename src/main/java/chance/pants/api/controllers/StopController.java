@@ -1,6 +1,6 @@
-package chance.pants.api.resources;
+package chance.pants.api.controllers;
 
-import chance.pants.api.controllers.Stop;
+import chance.pants.api.resources.Stop;
 import org.redisson.api.RMap;
 import org.redisson.api.RedissonClient;
 import org.springframework.beans.factory.annotation.Autowired;

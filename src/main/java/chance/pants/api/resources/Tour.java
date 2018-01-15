@@ -1,10 +1,10 @@
-package chance.pants.algorithm.simulatedannealing;
+package chance.pants.api.resources;
 
 import java.util.ArrayList;
 import java.util.List;
 
 //TODO make this a generic class/interface that works for any simAnneal
-class Tour {
+public class Tour {
 
     private final List<Stop> stops;
 
