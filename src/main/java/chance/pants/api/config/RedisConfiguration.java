@@ -1,8 +1,7 @@
-package chance.pants.api;
+package chance.pants.api.config;
 
 import org.redisson.Redisson;
 import org.redisson.api.RedissonClient;
-import org.redisson.client.RedisClient;
 import org.redisson.config.Config;
 import org.redisson.config.SingleServerConfig;
 import org.springframework.context.annotation.Bean;
