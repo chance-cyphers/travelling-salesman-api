@@ -14,7 +14,7 @@ public class WebSocketConfiguration extends AbstractWebSocketMessageBrokerConfig
 
 	@Override
 	public void registerStompEndpoints(StompEndpointRegistry registry) {
-		registry.addEndpoint("/tour/latest").withSockJS();
+		registry.addEndpoint("/new-stop").withSockJS();
 	}
 
 	@Override
