@@ -15,6 +15,7 @@ public class StockWebSocketHandler extends TextWebSocketHandler {
 
     @Autowired
     public StockWebSocketHandler(BroadcastHandler broadcastHandler) {
+        System.out.println("THIS IS A NEW ATTEMPT AT LOGGING! " + broadcastHandler.toString());
         logger.debug("Got handler :" + broadcastHandler.toString());
         this.broadcastHandler = broadcastHandler;
     }
