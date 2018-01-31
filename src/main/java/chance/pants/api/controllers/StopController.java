@@ -50,7 +50,7 @@ public class StopController {
     }
 
     @RequestMapping(method=DELETE)
-    public @ResponseBody void deleteStops() {
+    public void deleteStops() {
         redissonClient.getKeys().flushall();
     }
 
