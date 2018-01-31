@@ -1,6 +1,5 @@
 package chance.pants.api.controllers;
 
-import chance.pants.api.BroadcastHandler;
 import chance.pants.api.resources.Stop;
 import org.redisson.api.RMap;
 import org.redisson.api.RedissonClient;
@@ -26,17 +25,11 @@ public class StopController {
 //    @Autowired
 //    SimpMessagingTemplate websocket;
 
-    @Autowired
-    BroadcastHandler broadcastHandler;
-
     @RequestMapping(method=POST)
     public Stop createStop(@RequestBody Stop newStop) {
         long stopId = redissonClient.getAtomicLong("stopId").incrementAndGet();
         newStop.setId(stopId);
         redissonClient.getMap("stops").fastPut(stopId, newStop);
-
-//        this.websocket.convertAndSend(MESSAGE_PREFIX + "/newStop", "hello world");
-        broadcastHandler.broadcast("hello from the server siiiide");
         return newStop;
     }
 
@@ -56,11 +49,6 @@ public class StopController {
             return null;
         }
         return stops.get(stopId);
-    }
-
-    @RequestMapping(path="/socket", method=GET)
-    public String justATestOfSorts() {
-        return "hullo.";
     }
 
 }
