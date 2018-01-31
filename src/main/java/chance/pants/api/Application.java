@@ -30,9 +30,9 @@ public class Application extends SpringBootServletInitializer implements WebSock
         registry.addHandler(stockWebSocketHandler(), "/new-stop").setAllowedOrigins("*").withSockJS();
     }
 
-
     @Bean
     public WebSocketHandler stockWebSocketHandler() {
+        System.out.println("websockethandler bean is getting made, at least");
         return new PerConnectionWebSocketHandler(StockWebSocketHandler.class);
     }
 
@@ -43,6 +43,7 @@ public class Application extends SpringBootServletInitializer implements WebSock
 
 
     public static void main(String[] args) {
+        System.out.println("main happens, at least");
         SpringApplication.run(Application.class, args);
     }
 
