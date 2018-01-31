@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.springframework.web.bind.annotation.RequestMethod.DELETE;
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
@@ -49,6 +50,11 @@ public class StopController {
             return null;
         }
         return stops.get(stopId);
+    }
+
+    @RequestMapping(method=DELETE)
+    public void deleteStops() {
+        redissonClient.getKeys().flushall();
     }
 
 }
