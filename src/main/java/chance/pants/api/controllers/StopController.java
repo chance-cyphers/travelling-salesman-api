@@ -58,10 +58,4 @@ public class StopController {
         websocket.convertAndSend("/tour", "new tour there be");
     }
 
-    //TODO delete this
-    @RequestMapping(path="/test", method=GET)
-    public void testWebsocket() {
-        websocket.convertAndSend("/tour", "hello from the server siiiideeee");
-    }
-
 }
