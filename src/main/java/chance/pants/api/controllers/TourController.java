@@ -24,6 +24,8 @@ public class TourController {
     @RequestMapping(method=GET)
     public Tour getTour() {
         List<Stop> allStops = getAllStops();
+        if (allStops.size() <= 1) { return new Tour(allStops); }
+
         SimulatedAnnealing simulatedAnnealing = new SimulatedAnnealing();
         List<Stop> solution = simulatedAnnealing.findSolution(allStops);
         return new Tour(solution);
