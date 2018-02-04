@@ -1,8 +1,8 @@
 package chance.pants.api.controllers;
 
 import chance.pants.api.algorithm.SimulatedAnnealing;
-import chance.pants.api.resources.Stop;
-import chance.pants.api.resources.Tour;
+import chance.pants.api.models.Stop;
+import chance.pants.api.models.Tour;
 import org.redisson.api.RMap;
 import org.redisson.api.RedissonClient;
 import org.springframework.beans.factory.annotation.Autowired;

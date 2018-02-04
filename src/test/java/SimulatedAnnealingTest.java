@@ -1,5 +1,5 @@
 import chance.pants.api.algorithm.SimulatedAnnealing;
-import chance.pants.api.resources.Stop;
+import chance.pants.api.models.Stop;
 import org.junit.Test;
 
 import java.util.ArrayList;

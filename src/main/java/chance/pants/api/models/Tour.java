@@ -1,4 +1,4 @@
-package chance.pants.api.resources;
+package chance.pants.api.models;
 
 import java.util.ArrayList;
 import java.util.List;

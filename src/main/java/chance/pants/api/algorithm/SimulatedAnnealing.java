@@ -1,7 +1,7 @@
 package chance.pants.api.algorithm;
 
-import chance.pants.api.resources.Stop;
-import chance.pants.api.resources.Tour;
+import chance.pants.api.models.Stop;
+import chance.pants.api.models.Tour;
 
 import java.util.List;
 
