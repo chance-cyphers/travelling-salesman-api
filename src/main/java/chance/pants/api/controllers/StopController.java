@@ -55,6 +55,7 @@ public class StopController {
     @RequestMapping(method=DELETE)
     public void deleteStops() {
         redissonClient.getKeys().flushall();
+        websocket.convertAndSend("/tour", "new tour there be");
     }
 
     //TODO delete this
