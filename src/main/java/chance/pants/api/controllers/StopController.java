@@ -4,6 +4,7 @@ import chance.pants.api.models.Stop;
 import org.redisson.api.RMap;
 import org.redisson.api.RedissonClient;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -56,6 +57,14 @@ public class StopController {
     public void deleteStops() {
         redissonClient.getKeys().flushall();
         websocket.convertAndSend("/tour", "new tour there be");
+    }
+
+    @Value("${message:no cool config here}")
+    private String message;
+
+    @RequestMapping(path="/test-config", method=GET)
+    public String testConfig() {
+        return message;
     }
 
 }
