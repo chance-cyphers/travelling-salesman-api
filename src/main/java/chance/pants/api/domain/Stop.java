@@ -1,13 +1,16 @@
-package chance.pants.api.models;
+package chance.pants.api.domain;
 
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
+@ToString
+@NoArgsConstructor
 public class Stop {
 
     private long id;
     private String name;
     private double x;
     private double y;
-
-    public Stop() {}
 
     public Stop(String name, double x, double y) {
         this.name = name;
@@ -26,11 +29,6 @@ public class Stop {
         double xDistance = Math.abs(getX() - stop.getX());
         double yDistance = Math.abs(getY() - stop.getY());
         return Math.sqrt((xDistance*xDistance) + (yDistance*yDistance));
-    }
-
-    @Override
-    public String toString(){
-        return getX()+", "+getY();
     }
 
 }

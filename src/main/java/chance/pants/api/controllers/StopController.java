@@ -1,6 +1,7 @@
 package chance.pants.api.controllers;
 
-import chance.pants.api.models.Stop;
+import chance.pants.api.messages.StopMessageSource;
+import chance.pants.api.domain.Stop;
 import org.redisson.api.RMap;
 import org.redisson.api.RedissonClient;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +18,6 @@ import java.util.List;
 import static org.springframework.web.bind.annotation.RequestMethod.*;
 
 @RestController
-@RequestMapping("/stop")
 public class StopController {
 
     @Autowired
@@ -26,16 +26,22 @@ public class StopController {
     @Autowired
     SimpMessagingTemplate websocket;
 
-    @RequestMapping(method=POST)
+    @Autowired
+    StopMessageSource stopMessageSource;
+
+    @RequestMapping(path="/stop", method=POST)
     public Stop createStop(@RequestBody Stop newStop) {
         long stopId = redissonClient.getAtomicLong("stopId").incrementAndGet();
         newStop.setId(stopId);
         redissonClient.getMap("stops").fastPut(stopId, newStop);
         websocket.convertAndSend("/tour", "new tour there be");
+
+        stopMessageSource.publishNewStop(newStop);
+
         return newStop;
     }
 
-    @RequestMapping(method=GET)
+    @RequestMapping(path="/stop", method=GET)
     public List<Stop> getAllStops() {
         RMap<String, Stop> stops = redissonClient.getMap("stops");
         if (stops == null) {
@@ -44,7 +50,7 @@ public class StopController {
         return new ArrayList<>(stops.values());
     }
 
-    @RequestMapping(path="/{stopId}", method=GET)
+    @RequestMapping(path="/stop/{stopId}", method=GET)
     public Stop getStop(@PathVariable long stopId) {
         RMap<String, Stop> stops = redissonClient.getMap("stops");
         if (stops == null) {
@@ -53,18 +59,10 @@ public class StopController {
         return stops.get(stopId);
     }
 
-    @RequestMapping(method=DELETE)
+    @RequestMapping(path="/stop", method=DELETE)
     public void deleteStops() {
         redissonClient.getKeys().flushall();
         websocket.convertAndSend("/tour", "new tour there be");
-    }
-
-    @Value("${message:no cool config here}")
-    private String message;
-
-    @RequestMapping(path="/test-config", method=GET)
-    public String testConfig() {
-        return message;
     }
 
 }

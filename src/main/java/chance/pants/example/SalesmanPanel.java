@@ -1,6 +1,6 @@
 package chance.pants.example;
 
-import chance.pants.api.models.Stop;
+import chance.pants.api.domain.Stop;
 
 import javax.swing.*;
 import java.awt.*;

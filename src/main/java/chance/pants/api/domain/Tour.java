@@ -1,4 +1,4 @@
-package chance.pants.api.models;
+package chance.pants.api.domain;
 
 import java.util.ArrayList;
 import java.util.List;
