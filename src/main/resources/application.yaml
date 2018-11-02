@@ -2,16 +2,5 @@ server:
   port: 8087
 
 spring:
-  cloud:
-    stream:
-      bindings:
-        outboundStops:
-          destination: stop
-          contentType: application/json
-        kafka:
-          binder:
-            zkNodes: localhost
-            brokers: localhost
-
   profiles:
     default: local

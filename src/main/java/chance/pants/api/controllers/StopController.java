@@ -1,11 +1,9 @@
 package chance.pants.api.controllers;
 
-import chance.pants.api.messages.StopMessageSource;
 import chance.pants.api.domain.Stop;
 import org.redisson.api.RMap;
 import org.redisson.api.RedissonClient;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -26,17 +24,12 @@ public class StopController {
     @Autowired
     SimpMessagingTemplate websocket;
 
-    @Autowired
-    StopMessageSource stopMessageSource;
-
     @RequestMapping(path="/stop", method=POST)
     public Stop createStop(@RequestBody Stop newStop) {
         long stopId = redissonClient.getAtomicLong("stopId").incrementAndGet();
         newStop.setId(stopId);
         redissonClient.getMap("stops").fastPut(stopId, newStop);
         websocket.convertAndSend("/tour", "new tour there be");
-
-        stopMessageSource.publishNewStop(newStop);
 
         return newStop;
     }

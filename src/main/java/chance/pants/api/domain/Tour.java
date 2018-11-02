@@ -3,7 +3,6 @@ package chance.pants.api.domain;
 import java.util.ArrayList;
 import java.util.List;
 
-//TODO make this a generic class/interface that works for any simAnneal
 public class Tour {
 
     private final List<Stop> stops;

@@ -7,7 +7,6 @@ import java.util.List;
 
 public class SimulatedAnnealing {
 
-    //TODO research starting temp and cooling rate
     private static final double startingTemp = 10000;
     private static final double coolingRate = 0.003;
 
@@ -36,7 +35,6 @@ public class SimulatedAnnealing {
         return bestSolution.getStops();
     }
 
-    //TODO inject function for finding neighbor
     private Tour findNeighbor(Tour currentSolution) {
         int randomIndex1 = (int) (currentSolution.size() * Math.random());
         int randomIndex2 = (int) (currentSolution.size() * Math.random());

@@ -31,7 +31,6 @@ public class TourController {
         return new Tour(solution);
     }
 
-    //TODO refactor this into a redis wrapper/repository class
     private List<Stop> getAllStops() {
         RMap<String, Stop> stops = redissonClient.getMap("stops");
         if (stops == null) {
